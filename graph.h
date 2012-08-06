@@ -45,6 +45,8 @@ class Graph {
   const Nodes& nodes() const { return nodes_; }
   const size_t num_nodes() const { return num_nodes_; }
   const int[][] edges() const { return edges_; }
+  const int[][] distance() const { return distance_; }
+  const int[][] parent() const { return parent_; }
 
   const Node* GetNode(int ordinal) const;
   const Node* GetNode(const std::string& name) const;
@@ -55,6 +57,8 @@ class Graph {
   Nodes nodes_;
   size_t num_nodes_;
   int[][] edges_;
+  int[][] distance_;
+  int[][] parent_;
 }
 
 #endif  // _GRAPH_H_

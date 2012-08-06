@@ -1,11 +1,22 @@
 #include "graph.h"
 
+using namespace graph;
+
 Graph::Graph(const Nodes& nodes) : nodes_(nodes),
                                    num_nodes_(nodes_.size()),
-                                   edges_(new int[num_nodes_][num_nodes_]) {
+                                   edges_(new int[num_nodes_][num_nodes_]),
+                                   distance_(new int[num_nodes_][num_nodes_]),
+                                   parent_(new int[num_nodes_][num_nodes_]) {
   int i = 0;
   for (Nodes::iterator iter = nodes_.begin(); iter != nodes_.end(); ++iter)
     iter->set_ordinal(i++);
+
+  for (size_t i = 0; i < num_nodes_; ++i) {
+    for (size_t j = 0; j < num_nodes_; ++j) {
+      distance_[i][j] = INFINITY;
+      parent_[i][j] = NO_PARENT;
+    }
+  }
 }
 
 /*
@@ -56,7 +67,7 @@ bool Graph::IsConnected() const {
     touched[node] = true;
 
     for (size_t i = 0; i < num_nodes_; ++i) {
-      if (edges[node][i] != graph::NO_EDGE && !touched[i]) {
+      if (edges[node][i] != NO_EDGE && !touched[i]) {
         nodes_to_visit.push(i);
       }
     }
@@ -78,7 +89,7 @@ bool Graph::HasCycle() const {
   int parent[num_nodes_];
   for (size_t i = 0; i < num_nodes_; ++i) {
     touched[i] = false;
-    parent[num_nodes_] = graph::NO_PARENT;
+    parent[num_nodes_] = NO_PARENT;
   }
 
   // Perform a BFS and touch nodes as we go. If ever we touch an already-touched
@@ -94,7 +105,7 @@ visit:
     touched[node] = true;
 
     for (size_t i = 0; i < num_nodes_; ++i) {
-      if (edges[node][i] != graph::NO_EDGE && parent[node] != i) {
+      if (edges[node][i] != NO_EDGE && parent[node] != i) {
         if (!touched[i]) {
           touched[i] = true;
           parent[i] = node;
@@ -119,7 +130,7 @@ visit:
 
 std::set<Path> MinPaths(const Nodes& input_nodes) const {
   std::set<Path> min_paths;
-  int min_paths_weight = graph::INFINITY;
+  int min_paths_weight = INFINITY;
 
   InputNodePaths input_node_paths = GetInputNodePaths(input_nodes);
 
@@ -129,7 +140,38 @@ std::set<Path> MinPaths(const Nodes& input_nodes) const {
 InputNodePaths GetInputNodePaths(const Nodes& input_nodes) const {
   InputNodePaths input_node_paths;
 
+  bool visited[num_nodes_];
+  for (Node::iterator input_node_iter = input_nodes.begin();
+       input_node_iter != input_nodes.end(); ++input_node_iter) {
+
+
+
+    // Dijkstras from *input_node_iter
+    for (size_t i = 0; i < num_nodes; ++i)
+      visited[i] = false;
+
+    int from = input_node_iter->ordinal();
+    int cur = from;
+    for (int neighbor = 0; neighbor < num_nodes_; ++neighbor) {
+      if (edges[cur][neighbor] != NO_EDGE) {
+        distance[cur][neighbor] = edges[cur][neighbor];
+        if (edges[
+
+        if (distance[from][cur] + edges[cur][neighbor] < distance[
+        distance[cur][neighbor] = edges[cur][neighbor];
+      }
+    }
+
+
+
+
+  }
+
+
+
+/* Old, shit code.
   Nodes::const_iterator end_iter = input_nodes.end(); // Save calls to .end().
+
   for (Nodes::const_iterator from_iter = input_nodes.begin();
        from_iter != end_iter; ++from_iter) {
     for (Nodes::const_iterator to_iter = from_iter + 1;
@@ -138,7 +180,7 @@ InputNodePaths GetInputNodePaths(const Nodes& input_nodes) const {
       // Most likely it will be a set of only one element, unless there are two
       // or more optimal paths.
       Paths best_paths;
-      int best_path_weight = graph::INFINITY;
+      int best_path_weight = INFINITY;
 
       std::stack<Path> stack;
       Path seed;
@@ -163,6 +205,7 @@ InputNodePaths GetInputNodePaths(const Nodes& input_nodes) const {
 
     }
   }
+*/
 
 
 }
