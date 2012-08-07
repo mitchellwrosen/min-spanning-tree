@@ -1,0 +1,1797 @@
+
+begin
+//==================================================
+//	unit test 1
+//==================================================
+
+// full set of nodes
+a
+b
+c
+d
+e
+done
+
+// edges for the full set of nodes
+a b 1
+b c 1
+a d 1
+d e 1
+e c 1
+done
+
+// list of input nodes
+a
+c
+d
+done
+
+// list of expected minPaths
+c b a
+a d
+done
+
+
+begin
+//==================================================
+//	unit test 2
+//==================================================
+
+// full set of nodes
+a
+b
+c
+d
+e
+done
+
+// edges for the full set of nodes
+a b 2
+b c 2
+a d 1
+d e 1
+e c 1
+done
+
+// list of input nodes
+a
+c
+done
+
+// list of expected minPaths
+a d e c
+done
+
+
+begin
+//==================================================
+//	unit test 3
+//==================================================
+
+// full set of nodes
+a
+b
+c
+d
+e
+done
+
+// edges for the full set of nodes
+a b 1
+b c 1
+a c 1
+d c 1
+e c 1
+d e 1
+done
+
+// list of input nodes
+a
+b
+d
+e
+done
+
+// list of expected minPaths
+b a
+d e
+a c d
+done
+
+
+begin
+//==================================================
+//	unit test 4
+//==================================================
+
+// full set of nodes
+c
+ll
+ultl
+ltl
+l
+u
+dr
+de
+v
+done
+
+// edges for the full set of nodes
+u c 1
+ll c 1
+ultl u 1
+ltl ultl 1
+l c 1
+de c 1
+v c 1
+dr c 1
+de v 1
+ltl ll 1
+done
+
+// list of input nodes
+l
+u
+ll
+done
+
+// list of expected minPaths
+ll c l
+ll c u
+done
+
+
+begin
+//==================================================
+//	unit test 5
+//==================================================
+
+// full set of nodes
+c
+ll
+ltl
+l
+u
+dr
+de
+v
+done
+
+// edges for the full set of nodes
+u c 1
+ll c 1
+ltl c 1
+l c 1
+de c 1
+v c 1
+dr c 1
+de v 1
+ltl ll 1
+done
+
+// list of input nodes
+ll
+ltl
+v
+de
+done
+
+// list of expected minPaths
+ltl ll
+de v
+ll c de
+done
+
+
+begin
+//==================================================
+//	unit test 6
+//==================================================
+
+// full set of nodes
+c
+ll
+ltl
+l
+u
+dr
+de
+v
+done
+
+// edges for the full set of nodes
+u c 1
+ll c 1
+ltl c 1
+l c 1
+de c 1
+v c 1
+dr c 1
+de v 1
+ltl ll 1
+done
+
+// list of input nodes
+ll
+ltl
+de
+done
+
+// list of expected minPaths
+ltl ll
+ll c de
+done
+
+
+begin
+//==================================================
+//	unit test 7
+//==================================================
+
+// full set of nodes
+c
+ll
+ltl
+de
+v
+done
+
+// edges for the full set of nodes
+ll c 1
+ltl c 1
+de c 1
+v c 1
+de v 1
+ltl ll 1
+done
+
+// list of input nodes
+ll
+ltl
+de
+done
+
+// list of expected minPaths
+ltl ll
+ll c de
+done
+
+
+begin
+//==================================================
+//	unit test 8
+//==================================================
+
+// full set of nodes
+c
+ll
+ltl
+de
+v
+done
+
+// edges for the full set of nodes
+ll c 1
+ltl c 1
+de c 1
+v c 1
+de v 1
+ltl ll 1
+done
+
+// list of input nodes
+ll
+ltl
+de
+v
+done
+
+// list of expected minPaths
+ltl ll
+de v
+ll c de
+done
+
+
+begin
+//==================================================
+//	unit test 9
+//==================================================
+
+// full set of nodes
+a
+b
+c
+d
+v
+x
+y
+done
+
+// edges for the full set of nodes
+a d 1
+d c 1
+d v 1
+c v 1
+v b 1
+v y 1
+y c 1
+y x 1
+done
+
+// list of input nodes
+a
+x
+b
+done
+
+// list of expected minPaths
+a d v b
+b v y x
+done
+
+
+begin
+//==================================================
+//	unit test 10
+//==================================================
+
+// full set of nodes
+a
+d
+c
+y
+x
+v
+b
+done
+
+// edges for the full set of nodes
+a d 1
+d c 1
+d v 1
+c v 1
+v b 1
+v y 1
+y c 1
+y x 1
+done
+
+// list of input nodes
+a
+b
+x
+done
+
+// list of expected minPaths
+a d v b
+x y v b
+done
+
+
+begin
+//==================================================
+//	unit test 11
+//==================================================
+
+// full set of nodes
+a
+d
+c
+y
+x
+v
+b
+done
+
+// edges for the full set of nodes
+a d 1
+d c 1
+d v 1
+c v 1
+v b 1
+v y 1
+y c 1
+y x 1
+done
+
+// list of input nodes
+a
+b
+x
+c
+done
+
+// list of expected minPaths
+a d c
+c y x
+c v b
+done
+
+
+begin
+//==================================================
+//	unit test 12
+//==================================================
+
+// full set of nodes
+a
+d
+c
+y
+x
+v
+b
+done
+
+// edges for the full set of nodes
+a d 1
+d c 1
+d v 1
+c v 1
+v b 1
+v y 1
+y c 1
+y x 1
+done
+
+// list of input nodes
+a
+d
+c
+y
+x
+v
+b
+done
+
+// list of expected minPaths
+a d
+d c
+d v
+c y
+c v
+y x
+y v
+v b
+done
+
+
+begin
+//==================================================
+//	unit test 13 - the big test !!!
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+PR
+VP
+CTE
+done
+
+// list of expected minPaths
+CTE CRS V D PDRH PR
+CTE CRS V VS SB B PB VP
+done
+
+
+begin
+//==================================================
+//	unit test 14 - another REALLY big test !!!
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+PR
+VP
+CTE
+DTMS
+TZDT
+DM
+LTL
+done
+
+// list of expected minPaths
+LTL ULTL U DM
+DM V CRS CTE
+DM U PDRH PR
+LTL ULTL U PDRH PR
+DTMS MS D V DM
+DTMS MS D PDRH PR
+DM U A DT TZDT
+LTL ULTL U A DT TZDT
+DTMS MS ML A DT TZDT
+DTMS MS D V CRS CTE
+TZDT DT A V CRS CTE
+TZDT DT A U PDRH PR
+CTE CRS V D PDRH PR
+LTL ULTL U A ML MS DTMS
+LTL ULTL U A V CRS CTE
+DM V VS SB B PB VP
+done
+
+
+begin
+//==================================================
+//	unit test 15 - another REALLY big test !!!
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+OP
+VP
+done
+
+// list of expected minPaths
+VP PB B SB VS V SP OP
+done
+
+
+begin
+//==================================================
+//	unit test 16 - another REALLY big test !!!
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+PR
+VP
+CTE
+DTMS
+TZDT
+DM
+LTL
+ML
+DTM
+PLT
+DET
+SB
+FF
+UC
+DTCR
+VGH
+L
+FFR
+DIV
+GPS
+done
+
+// list of expected minPaths
+L C VGH
+DM DTM
+DM FFR
+FF FFR
+L C DM
+VGH C DM
+GPS V DM
+GPS V DIV
+DTMS MS ML
+DM FD UC
+DM FD FF
+DM V DIV
+DTM DM FFR
+UC FD FF
+UC FD FFR
+CTE CRS DTCR
+L C V GPS
+L C DM DTM
+L C FD UC
+L C FD FF
+L C DM FFR
+L C V DIV
+L C SUB SB
+L C DE DET
+LTL ULTL U DM
+VGH C V GPS
+VGH C DM DTM
+VGH C FD UC
+VGH C FD FF
+VGH C DM FFR
+VGH C V DIV
+VGH C SUB SB
+VGH C DE DET
+GPS V A ML
+GPS V DM DTM
+GPS V DM FFR
+GPS V CRS CTE
+GPS V CRS DTCR
+GPS V VS SB
+GPS V DE DET
+ML A V DM
+ML A V DIV
+ML A DT TZDT
+DM V CRS CTE
+DM V CRS DTCR
+DM V VS SB
+DM U PDRH PR
+DM V DE DET
+DTM DM FD UC
+DTM DM FD FF
+DTM DM V DIV
+FFR DM V DIV
+DIV V CRS CTE
+DIV V CRS DTCR
+DIV V VS SB
+DIV V DE DET
+SB B PB VP
+L C U ULTL LTL
+L C D MS DTMS
+L C D MS ML
+L C V CRS CTE
+L C V CRS DTCR
+L C D PL PLT
+done
+
+
+begin
+//==================================================
+//	unit test 17 - another REALLY big test !!!
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// list of expected minPaths
+L C
+C D
+C V
+C U
+C DR
+C LL
+C VGH
+C DM
+C FD
+C AN
+C SUB
+C DE
+D V
+D MS
+D MID
+D MDN
+D PL
+D PDRH
+D DE
+V GPS
+V A
+V DM
+V DIV
+V CRS
+V VS
+V SP
+V DE
+U ULTL
+U A
+U DM
+U MDN
+U PDRH
+U DE
+DR DM
+DR DIV
+ULTL LTL
+MS DTMS
+MS ML
+ML MID
+ML A
+A DT
+DT TZDT
+DM DTM
+DM FD
+DM FFR
+FD UC
+FD FF
+FD FFR
+FF FFR
+CRS CT
+CRS MT
+CRS OB
+CRS CI
+CRS SD
+CRS CTE
+CRS PRL
+CRS NDP
+CRS S
+CRS DNS
+CRS CR
+CRS DTCR
+CRS CD
+SD OCD
+AN SUB
+SUB SB
+SB B
+SB VS
+B PB
+PB VP
+SP OP
+PL PLT
+PDRH PR
+DE DET
+done
+
+
+begin
+//==================================================
+//	unit test 18
+//==================================================
+
+// full set of nodes
+d
+c
+v
+x
+y
+a
+b
+done
+
+// edges for the full set of nodes
+a d 1
+d c 1
+d v 1
+c v 1
+v b 1
+v y 1
+y c 1
+y x 1
+done
+
+// list of input nodes
+y
+x
+v
+d
+c
+b
+a
+done
+
+// list of expected minPaths
+x y
+d c
+d v
+d a
+c v
+c y
+v y
+v b
+done
+
+
+begin
+//==================================================
+//	unit test 19
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+PR
+VP
+CTE
+done
+
+// list of expected minPaths
+CTE CRS V D PDRH PR
+CTE CRS V VS SB B PB VP
+done
+
+
+begin
+//==================================================
+//	unit test 20
+//==================================================
+
+// full set of nodes
+C
+L
+D
+V
+U
+DR
+LL
+ULTL
+LTL
+VGH
+GPS
+MS
+DTMS
+ML
+MID
+A
+DT
+DM
+DTM
+FD
+UC
+FF
+FFR
+DIV
+TZDT
+CRS
+CT
+MT
+OB
+CI
+SD
+OCD
+CTE
+PRL
+NDP
+S
+DNS
+CR
+DTCR
+CD
+AN
+SUB
+SB
+B
+VS
+PB
+VP
+SP
+OP
+MDN
+PL
+PLT
+PDRH
+PR
+DE
+DET
+done
+
+// edges for the full set of nodes
+L C 1
+D C 1
+V C 1
+V D 1
+U C 1
+DR C 1
+LL C 1
+ULTL U 1
+LTL ULTL 1
+VGH C 1
+GPS V 1
+MS D 1
+DTMS MS 1
+ML MS 1
+MID D 1
+MID ML 1
+A V 1
+A ML 1
+A U 1
+DT A 1
+DM C 1
+DM V 1
+DM DR 1
+DM U 1
+DTM DM 1
+FD C 1
+FD DM 1
+UC FD 1
+FF FD 1
+FFR DM 1
+FFR FF 1
+FFR FD 1
+DIV DR 1
+DIV V 1
+TZDT DT 1
+CRS V 1
+CT CRS 1
+MT CRS 1
+OB CRS 1
+CI CRS 1
+SD CRS 1
+OCD SD 1
+CTE CRS 1
+PRL CRS 1
+NDP CRS 1
+S CRS 1
+DNS CRS 1
+CR CRS 1
+DTCR CRS 1
+CD CRS 1
+AN C 1
+SUB AN 1
+SUB C 1
+SB SUB 1
+B SB 1
+VS SB 1
+VS V 1
+PB B 1
+VP PB 1
+SP V 1
+OP SP 1
+MDN D 1
+MDN U 1
+PL D 1
+PLT PL 1
+PDRH D 1
+PDRH U 1
+PR PDRH 1
+DE C 1
+DE D 1
+DE V 1
+DE U 1
+DET DE 1
+done
+
+// list of input nodes
+VP
+PB
+B
+SB
+VS
+V
+SP
+OP
+done
+
+// list of expected minPaths
+VP PB
+V VS
+V SP
+SB B
+SB VS
+B PB
+SP OP
+done

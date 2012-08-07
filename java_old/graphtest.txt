@@ -1,0 +1,362 @@
+
+begin
+//==================================================
+//  bug 28252 test
+//==================================================
+
+// full set of nodes
+dpm
+dcomm
+dproc
+dprocda
+dpb
+dpn
+dpt
+dprocsa
+dprov
+drf
+drn
+dra
+drc
+drcb
+dsp
+dst
+dsta
+dstb
+dud
+du
+du1
+fbed
+dcomp
+dorg
+cc
+dabe
+daa
+dbt
+dbec
+dbef
+dccomm
+dcd
+dccat
+dc
+ddiag
+dda
+ddb
+ddi1
+ddi2
+ddrg
+de
+dimpl
+dig
+dmc
+dmc1
+dmc2
+dpa
+dpayb
+dplan
+dplanm
+ddiag1
+dpay
+da
+dai
+dpda
+dbeh
+frd
+rfcdp
+rfcdrf
+rfcdrn
+rfcdra
+rfcdsta
+rfcdu
+rfcdmc
+fst
+sfcdrn
+sfcdst
+sfcdsta
+sfcdo
+fsd
+sfcdp
+sfcdd
+sfcdmc
+sfcdpt
+sfcdsp
+fdd
+dfcdd
+fpayd
+pfcde
+pfcdpay
+pfcdpda
+pfecda
+pficda
+pfcdig
+pfcdip
+fpprocd
+pfcdpr
+pfcdd
+pfcdpa
+pfcdpn
+pfcdsp
+frcd
+rfcdrc
+done
+
+// edges for the full set of nodes
+dpm dcomm 1
+dproc dcomm 1
+dprocda dcomm 1
+dpb dcomm 1
+dpb dproc 1
+dpn dcomm 1
+dpt dcomm 1
+dprocsa dcomm 1
+dprov dcomm 1
+drf dcomm 1
+drn dcomm 1
+dra dcomm 1
+drc dcomm 1
+drcb dcomm 1
+drcb drc 1
+dsp dcomm 1
+dst dcomm 1
+dsta dcomm 1
+dstb dcomm 1
+dstb dst 1
+dud dcomm 1
+du dcomm 1
+du1 dcomm 1
+fbed dcomm 1
+fbed dproc 1
+fbed dpb 1
+fbed dprov 1
+fbed drf 1
+fbed drn 1
+fbed dra 1
+fbed drcb 1
+fbed dsta 1
+fbed dstb 1
+fbed dud 1
+fbed du 1
+fbed du1 1
+fbed dcomp 1
+dproc dcomp 1
+dprocda dcomp 1
+dpb dcomp 1
+dpm dcomp 1
+dpn dcomp 1
+dpt dcomp 1
+dprocsa dcomp 1
+dprov dcomp 1
+drf dcomp 1
+drn dcomp 1
+dra dcomp 1
+drc dcomp 1
+drcb dcomp 1
+dsp dcomp 1
+dst dcomp 1
+dsta dcomp 1
+dstb dcomp 1
+dud dcomp 1
+du dcomp 1
+du1 dcomp 1
+fbed dorg 1
+dorg dcomm 1
+dorg dcomp 1
+dproc dorg 1
+dprocda dorg 1
+dpb dorg 1
+dpm dorg 1
+dpn dorg 1
+dpt dorg 1
+dprocsa dorg 1
+dprov dorg 1
+drf dorg 1
+drn dorg 1
+dra dorg 1
+drc dorg 1
+drcb dorg 1
+dsp dorg 1
+dst dorg 1
+dsta dorg 1
+dstb dorg 1
+dud dorg 1
+du dorg 1
+du1 dorg 1
+fbed cc 1
+cc dcomm 1
+cc dcomp 1
+cc dorg 1
+fbed dabe 1
+dabe dcomm 1
+dabe dcomp 1
+dabe dorg 1
+fbed daa 1
+daa dcomm 1
+daa dcomp 1
+daa dorg 1
+fbed dbt 1
+dbt dcomm 1
+dbt dcomp 1
+dbt dorg 1
+fbed dbec 1
+dbec dcomm 1
+dbec dcomp 1
+dbec dorg 1
+fbed dbef 1
+dbef dcomm 1
+dbef dcomp 1
+dbef dorg 1
+fbed dccomm 1
+dccomm dcomm 1
+dccomm dcomp 1
+dccomm dorg 1
+fbed dcd 1
+dcd dcomm 1
+dcd dcomp 1
+dcd dorg 1
+fbed dccat 1
+dccat dcomm 1
+dccat dcomp 1
+dccat dorg 1
+fbed dc 1
+dc dcomm 1
+dc dcomp 1
+dc dorg 1
+fbed ddiag 1
+ddiag dcomm 1
+ddiag dcomp 1
+ddiag dorg 1
+fbed dda 1
+dda dcomm 1
+dda dcomp 1
+dda dorg 1
+fbed ddb 1
+ddb dda 1
+ddb dcomm 1
+ddb dcomp 1
+ddb dorg 1
+fbed ddi1 1
+ddb ddi1 1
+ddi1 dcomm 1
+ddi1 dcomp 1
+ddi1 dorg 1
+fbed ddi2 1
+ddb ddi2 1
+ddi2 dcomm 1
+ddi2 dcomp 1
+ddi2 dorg 1
+fbed ddrg 1
+ddrg dcomm 1
+ddrg dcomp 1
+ddrg dorg 1
+fbed de 1
+de dcomm 1
+de dcomp 1
+de dorg 1
+fbed dimpl 1
+dimpl dcomm 1
+dimpl dcomp 1
+dimpl dorg 1
+fbed dig 1
+dig dcomm 1
+dig dcomp 1
+dig dorg 1
+fbed dmc 1
+dmc dcomm 1
+dmc dcomp 1
+dmc dorg 1
+fbed dmc1 1
+dmc1 dcomm 1
+dmc1 dcomp 1
+dmc1 dorg 1
+fbed dmc2 1
+dmc2 dcomm 1
+dmc2 dcomp 1
+dmc2 dorg 1
+fbed dpa 1
+dpa dcomm 1
+dpa dcomp 1
+dpa dorg 1
+fbed dpayb 1
+dpayb dcomm 1
+dpayb dcomp 1
+dpayb dorg 1
+fbed dplan 1
+dplan dcomm 1
+dplan dcomp 1
+dplan dorg 1
+fbed dplanm 1
+dplanm dcomm 1
+dplanm dcomp 1
+dplanm dorg 1
+ddb ddiag1 1
+ddiag1 dcomm 1
+ddiag1 dcomp 1
+ddiag1 dorg 1
+dpayb dpay 1
+dpay dcomm 1
+dpay dcomp 1
+dpay dorg 1
+da dcomm 1
+da dcomp 1
+da dorg 1
+dai dcomm 1
+dai dcomp 1
+dai dorg 1
+dpda dcomm 1
+dpda dcomp 1
+dpda dorg 1
+dpeh fbed 1
+dpeh fbed 1
+fbed frd 1
+frd rfcdp 1
+frd rfcdrf 1
+frd frcdrn 1
+frd rfcdra 1
+frd rfcdsta 1
+frd rfcdu 1
+frd rfcdmc 1
+frd fst 1
+fst sfcdrn 1
+fst sfcdst 1
+fst sfcdsta 1
+fst sfcdo 1
+fst fsd 1
+fsd sfcdp 1
+fsd sfcdd 1
+fsd sfcdmc 1
+fsd sfcdpt 1
+fsd sfcdsp 1
+fbed fdd 1
+fdd dfcdd 1
+fbed fpayd 1
+fpayd pfcde 1
+fpayd pfcdpda 1
+fpayd pfecda 1
+fpayd pficda 1
+fpayd pfcdig 1
+fpayd pfcdip 1
+fbed fprocd 1
+fprocd pfcdpr 1
+fprocd pfcdd 1
+fprocd pfcdpa 1
+fprocd pfcdpn 1
+fprocd pfcdsp 1
+fbed frcd 1
+frcd rfcdrc 1
+done
+
+// list of input nodes
+fbed
+dcomp
+dpa
+fst
+fsd
+done
+
+// list of expected minPaths
+fsd fst
+fbed dcomp
+fbed dpa
+dcomp dpa
+fbed frd fst
+done
