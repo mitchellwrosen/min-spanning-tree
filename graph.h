@@ -1,5 +1,5 @@
-#ifndef _GRAPH_H_
-#define _GRAPH_H_
+#ifndef GRAPH_H_
+#define GRAPH_H_
 
 #include <set>
 #include <vector>
@@ -46,7 +46,7 @@ class Graph {
   const size_t num_nodes() const { return num_nodes_; }
   const int[][] edges() const { return edges_; }
   const int[][] distance() const { return distance_; }
-  const int[][] parent() const { return parent_; }
+  const int[][] next() const { return next_; }
 
   const Node* GetNode(int ordinal) const;
   const Node* GetNode(const std::string& name) const;
@@ -56,9 +56,18 @@ class Graph {
  private:
   Nodes nodes_;
   size_t num_nodes_;
+
+  // edges_[i][j] represents the weight of the edge between Nodes i and j.
+  // graph::NO_EDGE if there exists no edge between Nodes i and j.
   int[][] edges_;
+
+  // distance_[i][j] represents the shortest distance between Nodes i and j.
+  // Initialized lazily using Dijkstra's algorithm.
   int[][] distance_;
-  int[][] parent_;
+
+  // next_[i][j] represents the next Node on the shotest path from Node i to
+  // Node j.
+  int[][] next_;
 }
 
-#endif  // _GRAPH_H_
+#endif  // GRAPH_H_

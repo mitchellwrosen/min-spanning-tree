@@ -1,12 +1,14 @@
 #include "graph.h"
 
-using namespace graph;
+#include <bitset>
+
+using namespace graph_constants;
 
 Graph::Graph(const Nodes& nodes) : nodes_(nodes),
                                    num_nodes_(nodes_.size()),
                                    edges_(new int[num_nodes_][num_nodes_]),
                                    distance_(new int[num_nodes_][num_nodes_]),
-                                   parent_(new int[num_nodes_][num_nodes_]) {
+                                   next_(new int[num_nodes_][num_nodes_]) {
   int i = 0;
   for (Nodes::iterator iter = nodes_.begin(); iter != nodes_.end(); ++iter)
     iter->set_ordinal(i++);
@@ -14,9 +16,12 @@ Graph::Graph(const Nodes& nodes) : nodes_(nodes),
   for (size_t i = 0; i < num_nodes_; ++i) {
     for (size_t j = 0; j < num_nodes_; ++j) {
       distance_[i][j] = INFINITY;
-      parent_[i][j] = NO_PARENT;
+      next_[i][j] = NO_NEXT;
     }
   }
+
+  for (size_t i = 0; i < num_nodes_; ++i)
+    distance[i][i] = 0;
 }
 
 /*
@@ -137,28 +142,50 @@ std::set<Path> MinPaths(const Nodes& input_nodes) const {
   // More shit
 }
 
+// Only generate paths from input nodes to /later/ input nodes (duh)
 InputNodePaths GetInputNodePaths(const Nodes& input_nodes) const {
   InputNodePaths input_node_paths;
 
-  bool visited[num_nodes_];
   for (Node::iterator input_node_iter = input_nodes.begin();
        input_node_iter != input_nodes.end(); ++input_node_iter) {
 
 
 
     // Dijkstras from *input_node_iter
-    for (size_t i = 0; i < num_nodes; ++i)
-      visited[i] = false;
-
     int from = input_node_iter->ordinal();
     int cur = from;
-    for (int neighbor = 0; neighbor < num_nodes_; ++neighbor) {
-      if (edges[cur][neighbor] != NO_EDGE) {
-        distance[cur][neighbor] = edges[cur][neighbor];
-        if (edges[
 
-        if (distance[from][cur] + edges[cur][neighbor] < distance[
-        distance[cur][neighbor] = edges[cur][neighbor];
+    // TODO: stop Dijkstra's-ing once we've visited all input nodes, rather than
+    // simply all nodes
+    boost::dynamic_bitset<> visited(num_nodes_);
+    while (visited.count() < num_nodes_) {
+      for (int neighbor = 0; neighbor < num_nodes_; ++neighbor) {
+        if (edges[cur][neighbor] != NO_EDGE && !visited[neighbor]) {
+          int tentative_distance = distance[from][cur] + edges[cur][neighbor];
+          // TODO <= to capture ties
+          // TODO non-existant edge guards
+          if (tentative_distance < distance[from][neighbor]) {
+            // Replace tentative distance with a better one (still tentative).
+            distance[from][neighbor] = tentative_distance;
+
+            // Update the next of each Node in the path from |from| to |neighbor|.
+            for (int ptr = from; ptr != cur; ptr = next[ptr][cur])
+              next[ptr][neighbor] = next[ptr][cur];
+            next[cur][neighbor] = neighbor;
+          }
+        }
+      }
+
+      visited.set(cur);
+
+      // Set the unvisited node marked with the lowest tentative distance as the
+      // next current node.
+      int min_tentative_distance = INFINITY;
+      for (int node = 0; node < num_nodes_; ++node) {
+        if (distance[from][node] < min_tentative_distance) {
+          min_tentative_distance = distance[from][node];
+          cur = node;
+        }
       }
     }
 
